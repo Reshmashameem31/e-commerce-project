@@ -32,7 +32,7 @@ const placeOrder = async (e) => {
     }
 
     const res = await axios.post(
-      'http://localhost:5000/order',
+      'https://e-commerce-backend-o3g3.onrender.com/order',
       { items: cart },
       { headers: { Authorization: `Bearer ${token}` } }
     );
