@@ -10,7 +10,7 @@ import { createContext ,useState,useEffect} from "react"
   },[])
       const fetchCart=async ()=>{
         try{
-             const res= await axios.get("http://localhost:5000/cart")
+             const res= await axios.get("https://e-commerce-backend-o3g3.onrender.com/cart")
         setCart(res.data)
         }
         catch(err){
@@ -27,7 +27,7 @@ import { createContext ,useState,useEffect} from "react"
      await increaseQuantity(existing)
      }
      else{
-      const res= await axios.post('http://localhost:5000/cart',
+      const res= await axios.post('https://e-commerce-backend-o3g3.onrender.com/cart',
         {
           productId:product._id,
           name:product.name,
@@ -48,7 +48,7 @@ import { createContext ,useState,useEffect} from "react"
     //increasing quantity
     const increaseQuantity=async (cartItem)=>{
       try{
-           const res= await axios.put(`http://localhost:5000/cart/${cartItem._id}`,{
+           const res= await axios.put(`https://e-commerce-backend-o3g3.onrender.com/cart/${cartItem._id}`,{
       quantity:cartItem.quantity+1
      })
      setCart(prev=>prev.map(item=>item._id==res.data._id?res.data:item))
@@ -61,7 +61,7 @@ import { createContext ,useState,useEffect} from "react"
     //decreasing quantity
    const decreaseQuantity=async (cartItem)=>{
     try{
-          const res= await axios.put(`http://localhost:5000/cart/${cartItem._id}`,{
+          const res= await axios.put(`https://e-commerce-backend-o3g3.onrender.com/cart/${cartItem._id}`,{
       quantity:cartItem.quantity-1
     })
     setCart(prev=>prev.map(item=>item._id==res.data._id?res.data:item))
@@ -73,7 +73,7 @@ import { createContext ,useState,useEffect} from "react"
     //removing product
     const removeFromCart=async (cartItem)=>{
       try{
-            await axios.delete(`http://localhost:5000/cart/${cartItem._id}`)
+            await axios.delete(`https://e-commerce-backend-o3g3.onrender.com/cart/${cartItem._id}`)
         setCart(prev=>prev.filter(item=>item._id!==cartItem._id))
       }
        catch(err){
