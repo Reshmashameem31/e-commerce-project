@@ -12,7 +12,7 @@ const ProductListing = () => {
   }
   const[products,setProducts]=useState([])
   useEffect(() => {
-  axios.get('http://localhost:5000/products')
+  axios.get('https://e-commerce-backend-o3g3.onrender.com/products')
     .then(res => setProducts(res.data))
     .catch(err => console.log(err));
 }, []);
