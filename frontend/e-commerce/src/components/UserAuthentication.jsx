@@ -14,8 +14,8 @@ const UserAuthentication = () => {
   e.preventDefault();
   try {
     const url = isLogin
-      ? "http://localhost:5000/user/login"
-      : "http://localhost:5000/user/register";
+      ? "https://e-commerce-backend-o3g3.onrender.com/user/login"
+      : "https://e-commerce-backend-o3g3.onrender.com/user/register";
 
     const body = isLogin ? { email } : { username, email };
 
